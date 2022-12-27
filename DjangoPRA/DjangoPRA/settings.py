@@ -28,7 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'member'
+    'member',
+    "board",
 ]
 
 MIDDLEWARE = [
@@ -144,3 +146,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import os
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # css,js 파일의 폴더 설정
+#파일 업로드 폴더, URL 설정
+MEDIA_URL="/file/"
+MEDIA_ROOT=os.path.join(BASE_DIR,"file")
