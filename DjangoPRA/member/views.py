@@ -67,13 +67,11 @@ def logout(request) :
 #                             매개변수로 전달 
 @loginIdchk
 def info(request,id) :
-    '''    
-    try :
+    try :# 주석
       login = request.session["login"]
     except : #로그아웃상태
       context = {"msg":"로그인하세요","url":"../../login"}
-      return render(request,"alert.html",context)
-    '''  
+      return render(request,"alert.html",context) # 주석
 #   else : #로그인 상태
     member = Member.objects.get(id=id)
     return render(request,"member/info.html",{"mem":member})
@@ -140,8 +138,8 @@ def delete_rtn(request,id) :
       if member.pass1 == request.POST["pass"] : #비밀번호 일치
          mem = Member.objects.get(id=id)
          mem.delete()
-         if id == login : #본인탈퇴
-             auth.logout(request) #로그아웃
+         if id == login : # 본인 탈퇴
+             auth.logout(request) # 로그아웃
              context={"msg":"탈퇴완료","url":"../../login/"}
              return render(request,"alert.html",context)
          else : #관리자 강제탈퇴
@@ -159,7 +157,7 @@ def list(request) :
         return render(request,"alert.html",context)
     else :
         if login != "admin" :
-           context={"msg":"관리자만 가능합니다","url":"../main/"}
+           context={"msg":"관리자만 가능","url":"../main/"}
            return render(request,"alert.html",context)
         #mlist 요소: Member 객체 
         mlist = Member.objects.all() #모든데이터 리턴
