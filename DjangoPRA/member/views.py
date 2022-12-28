@@ -67,11 +67,13 @@ def logout(request) :
 #                             매개변수로 전달 
 @loginIdchk
 def info(request,id) :
+    '''
     try :# 주석
       login = request.session["login"]
     except : #로그아웃상태
       context = {"msg":"로그인하세요","url":"../../login"}
       return render(request,"alert.html",context) # 주석
+      '''
 #   else : #로그인 상태
     member = Member.objects.get(id=id)
     return render(request,"member/info.html",{"mem":member})
