@@ -7,7 +7,8 @@ import time
 # decorator.decorator :
 #                   decorator 패키지(폴더)의
 #                   decorator.py 소스 import
-from decorator.decorator import loginIdchk,loginchk
+from decorator.decorator import loginIdchk,loginchk # 해결할 문제점
+# 실행은 되는데 왜 오류가 나는지 모르겠음...
 
 # member/views.py
 #http://127.0.0.1:8000/member/login/ 요청시 호출되는 함수
@@ -73,7 +74,7 @@ def info(request,id) :
     except : #로그아웃상태
       context = {"msg":"로그인하세요","url":"../../login"}
       return render(request,"alert.html",context) # 주석
-      '''
+    '''
 #   else : #로그인 상태
     member = Member.objects.get(id=id)
     return render(request,"member/info.html",{"mem":member})
